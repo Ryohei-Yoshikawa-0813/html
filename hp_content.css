@@ -1,0 +1,318 @@
+
+/* img全て */
+img {
+  width: 100%;
+}
+
+/* header */
+.header_content01 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_content01_left {
+  width: 40%;
+  margin: auto 40px;
+}
+
+.header_content01_right {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_header {
+  width: 50%;
+  text-align: center;
+  padding: 20px 20px;
+  margin: 10px;
+}
+
+.btn_header01 {
+  color: #ffffff;
+  background-color: #FF6699;
+}
+
+.btn_header02 {
+  color: #ffffff;
+  background-color: #009900;
+}
+
+.header_list {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+/* main */
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn_main {
+  width: 300px;
+  height: 50px;
+  color: #ffffff;
+}
+
+/* main_title */
+.main_title {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.title h1 {
+  font-size: 28px;
+}
+
+/* main_form */
+.form {
+  border-top: solid 1px #6d6d6d;
+  border-bottom: solid 1px #6d6d6d;
+}
+
+.form_item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.form_item label {
+  margin: auto 0;
+  cursor: default;
+}
+
+.form_label {
+  width: 20%;
+}
+
+.badge {
+  color: #ffffff;
+  background-color: #FF0000;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 1px 2px;
+}
+
+.form_input {
+  width: 70%;
+  padding: 2px;
+}
+
+.form_border {
+  border: solid 1px #6d6d6d;
+}
+
+select {
+  cursor: pointer;
+}
+
+select:invalid {
+  color: #6d6d6d;
+}
+
+textarea {
+  resize: none;
+}
+
+.form_input a:link {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+.form_input a:visited {
+  color: #551A8B;
+  text-decoration: underline;
+}
+
+.form_input :active {
+  color: #FF0000;
+  text-decoration: underline;
+}
+
+.form_submit {
+  text-align: center;
+  padding: 60px;
+}
+
+.form_btn {
+  background-color: #009900;
+}
+
+/* error文 */
+.error {
+  color:#FF0000;
+}
+
+/* btn_band */
+.btn_band {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #6d6d6d;
+  padding: 80px;
+}
+
+.btn_band01 {
+  width: 48%;
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+
+.btn_band02 {
+  width: 48%;
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+
+.btn_band01 button {
+  background-color: #FF6699;
+}
+
+.btn_band02 button {
+  background-color: #009900;
+}
+
+.btn_band h3 {
+  padding-bottom: 10px;
+}
+
+/* footer */
+footer {
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  /* header */
+  .header_content01 {
+    display: inline;
+    text-align: center;
+  }
+  
+  .header_content01_left {
+    width: 100%;
+    margin: auto;
+    padding: 2% 0;
+    font-size: 3vw;
+  }
+  
+  .header_content01_right {
+    width: 100%;
+    font-size: 3vw;
+  }
+
+  .btn_header {
+    padding: 2%;
+    margin: 1%;
+  }
+
+  .header_list {
+    font-size: 3vw;
+    margin: 2% auto;
+  }
+
+  /* main */
+  .wrapper {
+    width: 80%;
+  }
+
+  .btn_main {
+    width: 40%;
+    height: 7vw;
+    font-size: 3vw;
+  }
+
+  /* main_title */
+  .main_title {
+    padding: 6% 0;
+  }
+
+  .title {
+    padding-bottom: 2%;
+  }
+
+  .title h1 {
+    font-size: 4vw;
+  }
+
+  .text p {
+    font-size: 2vw;
+  }
+
+  /* main_form */
+  .form {
+    font-size: 3vw;
+  }
+
+  .form_item {
+    width: 100%;
+    display: inline-block;
+    padding: 0;
+    margin: 2% 0;
+  }
+
+  .badge {
+    color: #ffffff;
+    background-color: #FF0000;
+    font-size: 2vw;
+    font-weight: bold;
+    border-radius: 2vw;
+    padding: 0;
+  }
+  
+  .form_label {
+    width: 100%;
+  }
+
+  .form_input {
+    width: 100%;
+    padding: 2%;
+  }
+
+  .form_submit {
+    padding: 6%;
+  }
+
+  /* btn_band */
+  .btn_band {
+    display: inline-block;
+    width: 100%;
+    padding:0;
+  }
+
+  .btn_band h3 {
+    font-size: 4vw;
+  }
+
+  .btn_band01 {
+    width: 80%;
+    padding: 4% 0;
+    margin: 5% auto;
+  }
+
+  .btn_band02 {
+    width: 80%;
+    padding: 4% 0;
+    margin: 5% auto;
+  }
+
+  .btn_band h3 {
+    padding-bottom: 1%;
+  }
+
+  /* footer */
+  footer {
+  font-size: 1.5vw;
+  padding: 2%;
+  }
+}

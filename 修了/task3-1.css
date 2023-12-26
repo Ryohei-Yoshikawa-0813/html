@@ -1,0 +1,11 @@
+table {
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+  width: 400px;
+  height: 150px;
+}
+
+th, td {
+  border: 1px solid black;
+}
