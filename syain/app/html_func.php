@@ -66,13 +66,13 @@ function show_form($id, $name, $age, $work, $old_id, $status, $button)
     <input type="text" name="age" placeholder="例)35" value="{$age}">
     <p>勤務形態</p>
     <input type="text" name="work" placeholder="例)社員" value="{$work}">
-    <p>{$error}</p>
+    <p class="red">{$error}</p>
     <input type="hidden" name="old_id" value="{$old_id}">
     <input type="hidden" name="status" value="{$status}">
     <input type="submit" name="button" value="{$button}">
   </form>
 FORM;
-}
+  }
 
 function show_create()
 {
