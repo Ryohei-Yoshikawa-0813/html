@@ -2,6 +2,8 @@
 ini_set('display_errors',1);
 ini_set('error_reporting',E_ALL);
 
+require_once('common.php');
+
 function show_top($heading = "社員一覧")
 {
   echo <<<TOP
@@ -78,6 +80,39 @@ function show_create()
 {
   $error = get_error();
   show_form("","","","","","create","登録");
+}
+
+function show_syain($id)
+{
+  $db->getsyain($id);
+  echo <<<SYAIN
+  <form action="post_data.php" method="post">
+    <p>社員番号</p>
+    <input type="text" name="id" placeholder="例)10001" value="{$member[0]["id"]}">{$member[0]["id"]}
+    <p>名前</p>
+    <input type="text" name="name" placeholder="例)中野 孝" value="{$member[0]["name"]}">{$member[0]["name"]}
+    <p>年齢</p>
+    <input type="text" name="age" placeholder="例)35" value="{$member[0]["age"]}">{$member[0]["age"]}
+    <p>勤務形態</p>
+    <input type="text" name="work" placeholder="例)社員" value="{$member[0]["work"]}">{$member[0]["work"]}
+    <p class="red">{$error}</p>
+    <input type="hidden" name="old_id" value="{$old_id}">
+    <input type="hidden" name="status" value="{$status}">
+    <input type="submit" name="button" value="{$button}">
+  </form>
+SYAIN;
+}
+
+function show_update()
+{
+  $error = get_error();
+  show_form("","","","","","update","更新");
+}
+
+function show_delete()
+{
+  $error = get_error();
+  show_form("","","","","","delete","削除");
 }
 
 ?>
