@@ -1,5 +1,10 @@
 <?php
 require_once('common.php');
+session_start();
+$_SESSION["id"] = $_POST["id"];
+$_SESSION["name"] = $_POST["name"];
+$_SESSION["age"] = $_POST["age"];
+$_SESSION["work"] = $_POST["work"];
 
 if (isset($_POST["status"])) {
   if (isset($_POST["id"])) {
@@ -17,6 +22,7 @@ if (isset($_POST["status"])) {
   if (isset($_POST["old_id"])) {
     $old_id = $_POST["old_id"];
   }
+
   if ($_POST["status"] == "create") {
     if (check_input($id, $name, $age, $work, $error) == false) {
       header("Location: syain_create.php?error={$error}");
@@ -30,6 +36,25 @@ if (isset($_POST["status"])) {
     if ($db->createsyain($id, $name, $age, $work) == false) {
       $error = "DBエラー";
       header("Location: syain_create.php?error={$error}");
+      exit();
+    }
+    header("Location: index.php");
+    exit();
+  }
+
+  if ($_POST["status"] == "update") {
+    if (check_input($id, $name, $age, $work, $error) == false) {
+      header("Location: syain_update.php?error={$error}");
+      exit();
+    }
+    if ($db->idexist($id) == true){
+      $error = "既に使用されているIDです";
+      header("Location: syain_update.php?error={$error}");
+      exit();
+    }
+    if ($db->updatesyain($id, $name, $age, $work, $old_id) == false) {
+      $error = "DBエラー";
+      header("Location: syain_update.php?error={$error}");
       exit();
     }
     header("Location: index.php");

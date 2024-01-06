@@ -1,9 +1,4 @@
 <?php
-ini_set('display_errors',1);
-ini_set('error_reporting',E_ALL);
-
-require_once('common.php');
-
 function show_top($heading = "社員一覧")
 {
   echo <<<TOP
@@ -58,22 +53,24 @@ function show_form($id, $name, $age, $work, $old_id, $status, $button)
 {
   $error = "";
   $error = get_error();
+  session_start();
   echo <<<FORM
   <form action="post_data.php" method="post">
     <p>社員番号</p>
-    <input type="text" name="id" placeholder="例)10001" value="{$id}">
+    <input type="text" name="id" placeholder="例)10001" value="{$_SESSION["id"]}">
     <p>名前</p>
-    <input type="text" name="name" placeholder="例)中野 孝" value="{$name}">
+    <input type="text" name="name" placeholder="例)中野 孝" value="{$_SESSION["name"]}">
     <p>年齢</p>
-    <input type="text" name="age" placeholder="例)35" value="{$age}">
+    <input type="text" name="age" placeholder="例)35" value="{$_SESSION["age"]}">
     <p>勤務形態</p>
-    <input type="text" name="work" placeholder="例)社員" value="{$work}">
+    <input type="text" name="work" placeholder="例)社員" value="{$_SESSION["work"]}">
     <p class="red">{$error}</p>
     <input type="hidden" name="old_id" value="{$old_id}">
     <input type="hidden" name="status" value="{$status}">
     <input type="submit" name="button" value="{$button}">
   </form>
 FORM;
+  session_destroy();
   }
 
 function show_create()
@@ -82,37 +79,33 @@ function show_create()
   show_form("","","","","","create","登録");
 }
 
-function show_syain($id)
+function show_syain($member)
 {
-  $db->getsyain($id);
-  echo <<<SYAIN
-  <form action="post_data.php" method="post">
+  echo <<<EDIT
+  <form action="?" method="post">
     <p>社員番号</p>
-    <input type="text" name="id" placeholder="例)10001" value="{$member[0]["id"]}">{$member[0]["id"]}
+    <input type="hidden" name="id" value="{$member["id"]}">{$member["id"]}
     <p>名前</p>
-    <input type="text" name="name" placeholder="例)中野 孝" value="{$member[0]["name"]}">{$member[0]["name"]}
+    <p>{$member["name"]}</p>
     <p>年齢</p>
-    <input type="text" name="age" placeholder="例)35" value="{$member[0]["age"]}">{$member[0]["age"]}
+    <p>{$member["age"]}</p>
     <p>勤務形態</p>
-    <input type="text" name="work" placeholder="例)社員" value="{$member[0]["work"]}">{$member[0]["work"]}
-    <p class="red">{$error}</p>
-    <input type="hidden" name="old_id" value="{$old_id}">
-    <input type="hidden" name="status" value="{$status}">
-    <input type="submit" name="button" value="{$button}">
+    <p>{$member["work"]}</p>
+    <button type="submit" formaction="syain_update.php">更新</button><br>
+    <button type="submit" formaction="syain_delete.php">削除</button><br>
   </form>
-SYAIN;
+EDIT;
 }
 
 function show_update()
 {
   $error = get_error();
-  show_form("","","","","","update","更新");
+  show_form("","","","",$_POST["id"],"update","更新");
 }
 
 function show_delete()
 {
-  $error = get_error();
-  show_form("","","","","","delete","削除");
+  echo '<p>削除しました。</p>';
 }
 
 ?>
